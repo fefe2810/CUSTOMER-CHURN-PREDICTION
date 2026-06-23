@@ -1,0 +1,40 @@
+CUSTOMER CHURN PREDICTION — FINDINGS SUMMARY
+=============================================
+
+PROJECT OVERVIEW
+Predicted which telecom customers are likely to leave using classification models.
+Dataset: Telco Customer Churn — 7,043 customers, 20 features.
+
+WPS SHEETS FINDINGS
+- Overall churn rate: 26.53% — roughly 1 in 4 customers left the service
+- Month-to-month contracts had the highest churn at 2,220 customers
+- Electronic check customers churned at 45.3% — nearly 3x higher than automatic payment methods
+- Credit card automatic payments had the lowest churn rate at 15.3%
+
+DATA PREPARATION
+- Encoded all text columns to numbers using LabelEncoder
+- Applied SMOTE to balance churned vs non-churned customers
+- Final training dataset after SMOTE: 8,260 rows
+- Test dataset: 2,066 rows
+
+MODEL RESULTS
+Logistic Regression:  Accuracy 81%  |  AUC 0.888
+Random Forest:        Accuracy 84%  |  AUC 0.919
+Random Forest was selected as the final model.
+
+FEATURE IMPORTANCE
+1. Contract — commitment level is the strongest churn signal
+2. TotalCharges — reflects overall customer loyalty and tenure
+3. MonthlyCharges — higher bills increase likelihood of leaving
+
+KEY FINDINGS
+- Random Forest correctly predicts churn 84% of the time
+- Pricing and commitment level are the biggest drivers of churn
+- Customers on month-to-month contracts paying high monthly charges
+  are the highest risk group
+- Locking customers into longer contracts significantly reduces churn
+- Auto-payment setup strongly correlates with customer retention
+
+BUSINESS RECOMMENDATION
+Target high risk customers — month-to-month contracts with high monthly
+charges paying via electronic check — with retention offers before they leave.
